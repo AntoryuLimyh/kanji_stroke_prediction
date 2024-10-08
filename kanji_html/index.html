@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Andrew Kanji Demo</title>
+    
+    <!-- Link the external CSS file -->
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Include the Kanji Canvas JavaScript files -->
+    <script src="kanji-canvas.min.js"></script>
+    <script src="ref-patterns.js"></script>
+</head>
+<body>
+
+    <div class="container">
+        <h1>Draw Kanji</h1>
+
+        <!-- Canvas for drawing Kanji -->
+        <canvas id="can" data-candidate-list="candidateList" width="256" height="256"></canvas>
+
+        <!-- Buttons for actions -->
+        <button onclick="KanjiCanvas.erase('can')">Erase</button>
+        <button onclick="KanjiCanvas.deleteLast('can')">Delete Last Stroke</button>
+        <button onclick="KanjiCanvas.recognize('can')">Recognize</button>
+
+        <!-- Div to display recognition results -->
+        <div id="candidateList"></div>
+    </div>
+
+    <!-- <script>
+        // Initialize the Kanji canvas
+        KanjiCanvas.init('can');
+    </script> -->
+
+<script>
+    // Initialize the Kanji canvas
+    KanjiCanvas.init('can');
+
+    // Add event listener to recognize strokes as you draw
+    const canvas = document.getElementById('can');
+    const candidateList = document.getElementById('candidateList');
+    
+    // Call recognize after each stroke
+    canvas.addEventListener('mouseup', function() {
+        // Call recognize and handle results
+        const candidates = KanjiCanvas.recognize('can');
+
+     
+    });
+</script>
+
+</body>
+</html>
+
+
